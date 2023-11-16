@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversor HTML</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor HTML</h1>
+        <div>
+            <h2>Converter para uma única linha com \n</h2>
+            <textarea id="input" placeholder="Cole seu código HTML aqui"></textarea>
+            <button onclick="converterParaUmaLinha()">Converter</button>
+            <button onclick="copiarCodigo('input')">Copiar</button>
+        </div>
+        <div>
+            <h2>Converter de volta para o formato original</h2>
+            <textarea id="output" placeholder="Resultado"></textarea>
+            <button onclick="converterParaQuebraDeLinhas()">Converter</button>
+            <button onclick="copiarCodigo('output')">Copiar</button>
+        </div>
+        
+
+    <script>
+        function converterParaUmaLinha() {
+            var input = document.getElementById("input").value;
+            var output = input.replace(/\n/g, "\\n").replace(/\r/g, "\\n").replace(/"/g, "\\\"");
+            document.getElementById("output").value = output;
+        }
+    
+        function converterParaQuebraDeLinhas() {
+            var input = document.getElementById("output").value;
+            var output = input.replace(/\\n/g, "\n").replace(/\\"/g, "\"");
+            document.getElementById("input").value = output;
+        }
+    
+        function copiarCodigo(elementId) {
+            var codigo = document.getElementById(elementId);
+            codigo.select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+</html>
