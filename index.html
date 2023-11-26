@@ -24,11 +24,13 @@
         
 
     <script>
-        function converterParaUmaLinha() {
-            var input = document.getElementById("input").value;
-            var output = input.replace(/\n/g, "\\n").replace(/\r/g, "\\n").replace(/"/g, "\\\"");
-            document.getElementById("output").value = output;
-        }
+        /*UPDATE ALL */
+  function converterParaUmaLinha() {
+    var input = document.getElementById("input").value;
+    var output = input.replace(/\n/g, "\\n").replace(/\r/g, "\\n").replace(/"/g, "\\\"").replace(/\t/g, "\\t");
+    document.getElementById("output").value = output;
+}
+    
     
         function converterParaQuebraDeLinhas() {
             var input = document.getElementById("output").value;
